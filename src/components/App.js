@@ -10,12 +10,20 @@ class App extends React.Component {
     this.setState({ modal: !this.state.modal });
   };
 
+  onAddGame = details => {
+    console.log(details);
+  };
+
   render() {
     return (
       <div>
         <Header onNewGameClick={this.onNewGameClick} />
         <GamesList />
-        <GameModal modal={this.state.modal} toggle={this.onNewGameClick} />
+        <GameModal
+          onSubmit={this.onAddGame}
+          modal={this.state.modal}
+          toggle={this.onNewGameClick}
+        />
       </div>
     );
   }

@@ -5,15 +5,20 @@ class GameModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.sttate = { title: '', genre: '', price: null, description: '' };
+    this.state = { title: '', genre: '', price: '', description: '' };
   }
+
+  onFormSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+  };
 
   render() {
     return (
       <div>
         <Modal isOpen={this.props.modal} toggle={this.props.toggle}>
           <ModalHeader toggle={this.props.toggle}>Modal title</ModalHeader>
-          <form>
+          <form onSubmit={this.onFormSubmit}>
             <ModalBody>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -70,7 +75,7 @@ class GameModal extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.propstoggle}>
+              <Button color="primary" type="submit" onClick={this.props.toggle}>
                 Add Game
               </Button>{' '}
               <Button color="secondary" onClick={this.props.toggle}>
