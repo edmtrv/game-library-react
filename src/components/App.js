@@ -8,7 +8,6 @@ class App extends React.Component {
 
   onNewGameClick = () => {
     this.setState({ modal: !this.state.modal });
-    console.log(this.state.modal);
   };
 
   render() {
