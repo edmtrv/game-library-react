@@ -4,14 +4,16 @@ import GamesList from './GamesList';
 import GameModal from './GameModal';
 
 class App extends React.Component {
-  state = { modal: false };
+  state = { modal: false, games: [] };
 
   onNewGameClick = () => {
     this.setState({ modal: !this.state.modal });
   };
 
-  onAddGame = details => {
-    console.log(details);
+  onAddGame = inputs => {
+    const games = [...this.state.games];
+    games.push({ ...inputs });
+    this.setState({ games });
   };
 
   render() {
