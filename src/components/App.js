@@ -12,7 +12,7 @@ class App extends React.Component {
 
   onAddGame = inputs => {
     const games = [...this.state.games];
-    games.push({ ...inputs });
+    games.push({ ...inputs, hoursPlayed: 0 });
     this.setState({ games });
   };
 
@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div>
         <Header onNewGameClick={this.onNewGameClick} />
-        <GamesList />
+        <GamesList games={this.state.games} />
         <GameModal
           onSubmit={this.onAddGame}
           modal={this.state.modal}

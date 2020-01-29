@@ -1,6 +1,29 @@
 import React from 'react';
+import GameCard from './GameCard';
 
-const GamesList = () => {
+const GamesList = ({ games }) => {
+  const allGames = games
+    .map((game, id) => {
+      return <GameCard key={id} game={game} />;
+    })
+    .reduce((list, card, count) => {
+      let row;
+      if (count % 3 === 0) {
+        row = [];
+        list.push(row);
+        row.push(card);
+      } else {
+        row.push(card);
+      }
+
+      return list;
+    }, [])
+    .map((row, id) => (
+      <div key={id} className="row mt-3">
+        {row}
+      </div>
+    ));
+
   return (
     <div>
       <main className="container">
@@ -11,7 +34,7 @@ const GamesList = () => {
         </div>
         <div className="row">
           <div className="col">
-            <section className="games"></section>
+            <section className="games">{allGames}</section>
           </div>
         </div>
       </main>
