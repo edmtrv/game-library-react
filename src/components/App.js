@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 import Header from './Header';
 import GamesList from './GamesList';
 import GameModal from './GameModal';
@@ -12,7 +13,13 @@ class App extends React.Component {
 
   onAddGame = inputs => {
     const games = [...this.state.games];
-    games.push({ ...inputs, hoursPlayed: 0 });
+    games.push({ ...inputs, id: uniqid(), hoursPlayed: 0 });
+    this.setState({ games });
+  };
+
+  onDeleteGame = id => {
+    const games = this.state.games.filter(game => game.id !== id);
+
     this.setState({ games });
   };
 
@@ -20,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <Header onNewGameClick={this.onNewGameClick} />
-        <GamesList games={this.state.games} />
+        <GamesList onDelete={this.onDeleteGame} games={this.state.games} />
         <GameModal
           onSubmit={this.onAddGame}
           modal={this.state.modal}

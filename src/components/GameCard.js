@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, onDelete }) => {
   return (
     <div className="col-4">
       <article className="card">
@@ -14,7 +14,10 @@ const GameCard = ({ game }) => {
           <p className="card-text">{game.description}</p>
           <div className="d-flex">
             <div className="mr-2">
-              <button className="btn btn-outline-danger remove-game">
+              <button
+                onClick={() => onDelete(game.id)}
+                className="btn btn-outline-danger remove-game"
+              >
                 Remove
               </button>
             </div>
