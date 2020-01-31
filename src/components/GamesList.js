@@ -41,7 +41,9 @@ const GamesList = ({ games, onDelete, onAddTime }) => {
         </div>
         <div className="row">
           <div className="col">
-            <section className="games">{allGames}</section>
+            <section className="games">
+              {allGames.length === 0 ? 'No games yet.' : allGames}
+            </section>
           </div>
         </div>
       </main>
