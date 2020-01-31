@@ -1,5 +1,7 @@
 ## A simple game library application
 
+[View in browser](http://edmtrv.github.io/game-library-react)
+
 ### Technologies used
 
 - React
