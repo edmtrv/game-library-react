@@ -1,4 +1,4 @@
-## A simple game library application
+## Game Library React
 
 [View in browser](http://edmtrv.github.io/game-library-react)
 
