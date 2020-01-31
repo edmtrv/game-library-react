@@ -2,7 +2,7 @@
   "name": "game-library-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://edmtrv.github.io/game-library-react",
+  "homepage": "https://edmtrv.github.io/game-library-react",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
