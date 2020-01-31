@@ -7,6 +7,14 @@ class GameCard extends React.Component {
     this.setState({ minutes: e.target.value });
   };
 
+  onDelete = () => {
+    this.props.onDelete(this.props.game.id);
+  };
+
+  onAddTime = () => {
+    this.props.onAddTime(this.props.game.id, this.state.minutes);
+  };
+
   render() {
     return (
       <div className="col-4">
@@ -26,14 +34,17 @@ class GameCard extends React.Component {
             <div className="d-flex">
               <div className="mr-2">
                 <button
-                  onClick={() => this.props.onDelete(this.props.game.id)}
+                  onClick={this.onDelete}
                   className="btn btn-outline-danger remove-game"
                 >
                   Remove
                 </button>
               </div>
               <div className="mr-1">
-                <button className="btn btn-outline-primary add-time">
+                <button
+                  onClick={this.onAddTime}
+                  className="btn btn-outline-primary add-time"
+                >
                   Add Time
                 </button>
               </div>

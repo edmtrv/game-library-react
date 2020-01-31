@@ -1,10 +1,17 @@
 import React from 'react';
 import GameCard from './GameCard';
 
-const GamesList = ({ games, onDelete }) => {
+const GamesList = ({ games, onDelete, onAddTime }) => {
   const allGames = games
     .map((game, id) => {
-      return <GameCard onDelete={onDelete} key={id} game={game} />;
+      return (
+        <GameCard
+          onDelete={onDelete}
+          onAddTime={onAddTime}
+          key={id}
+          game={game}
+        />
+      );
     })
     .reduce((list, card, count) => {
       let row;

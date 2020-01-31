@@ -23,11 +23,29 @@ class App extends React.Component {
     this.setState({ games });
   };
 
+  onAddTime = (id, minutes) => {
+    const hoursPlayed = +minutes / 60;
+
+    this.setState({
+      games: this.state.games.map(game => {
+        return game.id === id
+          ? Object.assign({}, game, {
+              hoursPlayed: game.hoursPlayed + hoursPlayed
+            })
+          : game;
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <Header onNewGameClick={this.onNewGameClick} />
-        <GamesList onDelete={this.onDeleteGame} games={this.state.games} />
+        <GamesList
+          onDelete={this.onDeleteGame}
+          onAddTime={this.onAddTime}
+          games={this.state.games}
+        />
         <GameModal
           onSubmit={this.onAddGame}
           modal={this.state.modal}
